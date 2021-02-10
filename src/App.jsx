@@ -14,7 +14,6 @@ class Flag extends React.Component {
         super(props)
         this.state = {image:null,cap:null,reg:null,id:null,opacity:1}
         this.URI = 'https://restcountries.eu/rest/v2/name/'
-        this.search = this.search.bind(this)
     }
 
     componentDidMount(){
@@ -54,19 +53,20 @@ class Flag extends React.Component {
                 reg:prefs.region,
                 image:prefs.flag
             }))
-            .catch(error => console.log(error))
+        .catch(error => console.log(error))
         this.setState(data)
     }
 
 
     render(){
+        const {image,cap,reg} = this.state
         return(
             <div>
-                <h1 style={{opacity:this.state.opacity}}>国の情報を検索してみよう</h1>
-                <input onChange={(event) => this.showData(event)} placeholder="英語で国名を入力して下さい" ref = {myInput => this.myInput=myInput}Hype="text"/>&nbsp;
+                <h1 style={{opacity:this.state.opacity}}>各国の情報を検索してみよう</h1>
+                <input onChange={event=>this.showData(event)} placeholder="英語で国名を入力して下さい" ref = {myInput=>this.myInput=myInput} type="text"/>&nbsp;
                 <Button variant='contained' color='inherit' onClick={this.search}>検索</Button>&nbsp;
                 <Button variant='contained' color='inherit' onClick={this.clearInput}>リセット</Button>
-                <TestView getImage={this.state.image} getCapital={this.state.cap} getRegion={this.state.reg}/>            
+                <TestView getImage={image} getCapital={cap} getRegion={reg}/>            
             </div>
                     
         )
