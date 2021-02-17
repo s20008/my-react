@@ -7,6 +7,7 @@ import {
     TableHead,
     TableCell
 } from '@material-ui/core'
+import './App.css'
 
 class Flag extends React.Component {
             
@@ -63,6 +64,7 @@ class Flag extends React.Component {
         return(
             <div>
                 <h1 style={{opacity:this.state.opacity}}>各国の情報を検索してみよう</h1>
+                
                 <input onChange={event=>this.showData(event)} placeholder="英語で国名を入力して下さい" ref = {myInput=>this.myInput=myInput} type="text"/>&nbsp;
                 <Button variant='contained' color='inherit' onClick={this.search}>検索</Button>&nbsp;
                 <Button variant='contained' color='inherit' onClick={this.clearInput}>リセット</Button>
@@ -76,7 +78,7 @@ class Flag extends React.Component {
 class TestView extends React.Component{
     render(){
         const {getImage,getCapital,getRegion} = this.props
-        var image = '';
+        var image 
         if(true){
             image = (<img src={getImage} alt=""/>);
         }
