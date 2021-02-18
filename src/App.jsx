@@ -7,7 +7,7 @@ import {
     TableHead,
     TableCell
 } from '@material-ui/core'
-//import './App.css'
+import './App.css'
 
 class Flag extends React.Component {
             
